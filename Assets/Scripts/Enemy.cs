@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{    
+{
     public void Init(Vector3 pos)
     {
         transform.position = pos;
@@ -11,8 +11,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Missile")
         {
-            Debug.Log("Enemy Hit !");
             other.gameObject.GetComponent<Tir>().Deactivate();
+
+            gameObject.SetActive(false);
         }
     }
 }
