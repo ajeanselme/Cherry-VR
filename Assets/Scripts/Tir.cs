@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class Tir : MonoBehaviour
 {
+    public float speed = 100.0f;
+    public float disappearTime = 1.0f;
+
+    [Header("_________DEBUG_______")]
+    [SerializeField] private float disappearTimer = 0.0f;
+
+    private void OnEnable()
+    {
+ 
+    }
+
+    private void OnDisable()
+    {
+        disappearTimer = 0.0f;
+        transform.position = transform.parent.position;
+    }
+
     void Update()
     {
         //le missile qui avance
-        transform.position += Vector3.up * 5 * Time.deltaTime;
+        transform.position += Vector3.up * speed * Time.deltaTime;
 
         //le missile qui disparait un moment après
-        Destroy(gameObject, 3);
-    }
-
-    //bon c'est pour toucher les aliens mais ça marche pas j'ai essayé pleins de trucs (genre trigger ou collision, collision ou collider..)
-    /*void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Alien"))
+        disappearTimer += Time.deltaTime;
+        if(disappearTimer > disappearTime)
         {
-            Debug.Log("TIR");
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-    }*/
+    }
 }
