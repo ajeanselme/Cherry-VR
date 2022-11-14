@@ -50,3 +50,4 @@ MonoBehaviour:
   nbLine: 5
   spawnEnemyZero: {x: -16, y: 15, z: 0}
   enemiesStep: 1
+  startWave: 1

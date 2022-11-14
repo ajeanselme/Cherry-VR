@@ -28,7 +28,9 @@ public class EnemiesManager : MonoBehaviour
                 Enemy enemy = Instantiate(enemyPrefab, transform);
                 enemy.Init(new Vector3(spawnEnemyZero.x + 0.5f + (1.2f * j), spawnEnemyZero.y + (1.2f * i), spawnEnemyZero.z));
                 enemies.Add(enemy);
-                enemy.gameObject.SetActive(false);
+
+                if(!startWave)
+                    enemy.gameObject.SetActive(false);
             }
         }
     }
