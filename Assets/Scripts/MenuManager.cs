@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public delegate void PlayEvent();
+    public static event PlayEvent OnPlay;
+
     public GameObject menu;
     public GameObject credits;
     public GameObject pause;
@@ -34,6 +37,9 @@ public class MenuManager : MonoBehaviour
     {
         menu.SetActive(false);
         isInGame = true;
+
+        if (OnPlay != null)
+            OnPlay();
     }
 
     public void Credits()

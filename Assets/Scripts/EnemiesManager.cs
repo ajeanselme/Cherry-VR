@@ -14,24 +14,53 @@ public class EnemiesManager : MonoBehaviour
     private bool moveRight = true;
     private float timer = 0;
 
+    [Header("_____DEBUG____")]
+    [SerializeField] private bool startWave = false;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         enemies = new List<Enemy>(nbEnemies);
         for (int i = 0; i < nbLine; i++)
         {
             for (int j = 0; j < nbEnemies / nbLine; j++)
             {
-                Enemy enemy = Instantiate(enemyPrefab);
+                Enemy enemy = Instantiate(enemyPrefab, transform);
                 enemy.Init(new Vector3(spawnEnemyZero.x + 0.5f + (1.2f * j), spawnEnemyZero.y + (1.2f * i), spawnEnemyZero.z));
                 enemies.Add(enemy);
+                enemy.gameObject.SetActive(false);
             }
+        }
+    }
+
+    void OnEnable()
+    {
+        MenuManager.OnPlay += StartWave;
+    }
+
+
+    void OnDisable()
+    {
+        MenuManager.OnPlay -= StartWave;
+    }
+
+    private void StartWave()
+    {
+        startWave = true;
+        foreach(Enemy enemy in enemies)
+        {
+            enemy.gameObject.SetActive(true);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!startWave)
+        { 
+            return;
+        }
+
         timer += Time.deltaTime;
         if (timer > 0.5f)
         {
