@@ -37,7 +37,11 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         //tir avec un cooldown
-        fireTimer += Time.deltaTime;
+        if(fireTimer < fireRate)
+        {
+            fireTimer += Time.deltaTime;
+        }
+        
         if (Input.GetKey(KeyCode.Space) && fireTimer > fireRate)
         {
             missilePool.Activate();
