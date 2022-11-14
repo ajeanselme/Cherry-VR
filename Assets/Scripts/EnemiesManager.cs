@@ -37,7 +37,6 @@ public class EnemiesManager : MonoBehaviour
         {
             timer -= 0.5f;
             HandleEnemiesMove();
-            //Debug.Log("trigger");
         }
     }
 
@@ -78,7 +77,7 @@ public class EnemiesManager : MonoBehaviour
             for (int i = 0; i < enemies.Count; i++)
             {
                 Vector3 pos = enemies[i].transform.position;
-                enemies[i].transform.position = new Vector3(pos.x, pos.y - 1, pos.z);
+                enemies[i].transform.position = new Vector3(pos.x, pos.y - enemiesStep, pos.z);
             }
             moveRight = !moveRight;
         }
