@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Missile")
         {
             Debug.Log("Enemy Hit !");
-            other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<Tir>().Deactivate();
         }
     }
 }

@@ -12,11 +12,12 @@ public class Tir : MonoBehaviour
 
     private void OnEnable()
     {
- 
+        // Add VFX + SFX here
     }
 
     private void OnDisable()
     {
+        // Reset the missile to initial value
         disappearTimer = 0.0f;
         transform.position = transform.parent.position;
     }
@@ -30,7 +31,30 @@ public class Tir : MonoBehaviour
         disappearTimer += Time.deltaTime;
         if(disappearTimer > disappearTime)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Deactivate();
         }
+    }
+    public void Deactivate()
+    {
+        StartCoroutine(OnDeactivate());
+    }
+
+    IEnumerator OnDeactivate()
+    {
+        // Begin here any VFX & SFX & Feel
+
+        //while(true)
+        //{
+        //    // Add here conditions to break loop
+        //    //if()
+        //    //{
+        //    //    break;
+        //    //}
+            
+        //    yield return null;
+        //}
+        yield return null;
+        gameObject.SetActive(false);
     }
 }
