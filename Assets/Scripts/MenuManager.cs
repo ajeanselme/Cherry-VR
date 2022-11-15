@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using DG.Tweening;
+
 public class MenuManager : MonoBehaviour
 {
     public delegate void PlayEvent();
@@ -18,6 +20,9 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        //DOTween.Init(autoKillMode, useSafeMode, logBehaviour);
+        DOTween.Init();
+
         menu.SetActive(true);
         credits.SetActive(false);
         pause.SetActive(false);
