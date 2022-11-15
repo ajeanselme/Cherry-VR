@@ -188,9 +188,10 @@ GameObject:
   - component: {fileID: 1483947032763720060}
   - component: {fileID: 1866112347722185598}
   - component: {fileID: 5962071005816425533}
+  - component: {fileID: 2261505002890809582}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +247,20 @@ MonoBehaviour:
   fireRate: 0.2
   missilePool: {fileID: 4215198375168755627}
   fireTimer: 0
+--- !u!114 &2261505002890809582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695533541913509370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dddc11abe724f46b435063ada72928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 10
 --- !u!1 &6922198770755343635
 GameObject:
   m_ObjectHideFlags: 0

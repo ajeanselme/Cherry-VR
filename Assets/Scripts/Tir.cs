@@ -35,7 +35,17 @@ public class Tir : MonoBehaviour
             Deactivate();
         }
     }
-    public void Deactivate()
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Alien")
+        {
+            Debug.Log("Tir trigger on Alien");
+            Deactivate();
+        }
+    }
+
+    private void Deactivate()
     {
         StartCoroutine(OnDeactivate());
     }

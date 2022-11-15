@@ -38,12 +38,14 @@ public class EnemiesManager : MonoBehaviour
     void OnEnable()
     {
         MenuManager.OnPlay += StartWave;
+        PlayerManager.OnDeath += EndWave;
     }
 
 
     void OnDisable()
     {
         MenuManager.OnPlay -= StartWave;
+        PlayerManager.OnDeath -= EndWave;
     }
 
     private void StartWave()
@@ -52,6 +54,15 @@ public class EnemiesManager : MonoBehaviour
         foreach(Enemy enemy in enemies)
         {
             enemy.gameObject.SetActive(true);
+        }
+    }
+
+    private void EndWave()
+    {
+        startWave = false;
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.gameObject.SetActive(false);
         }
     }
 

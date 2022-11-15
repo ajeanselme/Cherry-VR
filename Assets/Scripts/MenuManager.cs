@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MenuManager : MonoBehaviour
     public GameObject menu;
     public GameObject credits;
     public GameObject pause;
+    public GameObject gameOver;
 
     [Header("____DEBUG_____")]
     [SerializeField] private bool isInGame = false;
@@ -19,6 +21,17 @@ public class MenuManager : MonoBehaviour
         menu.SetActive(true);
         credits.SetActive(false);
         pause.SetActive(false);
+        gameOver.SetActive(false);
+    }
+
+    void OnEnable()
+    {
+        PlayerManager.OnDeath += GameOver;
+    }
+
+    void OnDisable()
+    {
+        PlayerManager.OnDeath -= GameOver;
     }
 
     private void Update()
@@ -36,6 +49,7 @@ public class MenuManager : MonoBehaviour
     public void Play()
     {
         menu.SetActive(false);
+        gameOver.SetActive(false);
         isInGame = true;
 
         if (OnPlay != null)
@@ -100,5 +114,18 @@ public class MenuManager : MonoBehaviour
                 Time.timeScale = 0.0f;
             }
         }
+    }
+
+    public void GameOver()
+    {
+        isInGame = false;
+        gameOver.SetActive(true);
+    }
+
+
+    // temporary
+    public void Retry()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
