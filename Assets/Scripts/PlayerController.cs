@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float fireRate = 0.2f;
 
     public MissilePool missilePool;
+
+    [SerializeField] VisualEffect muzzle;
 
     [Header("_______DEBUG______")]
     [SerializeField] float fireTimer = 0.0f;
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space) && fireTimer > fireRate)
         {
+            muzzle.Play();
             missilePool.Activate();
             fireTimer = 0.0f;
         }
