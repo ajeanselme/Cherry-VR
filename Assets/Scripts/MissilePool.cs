@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MissilePool : MonoBehaviour
@@ -25,11 +23,6 @@ public class MissilePool : MonoBehaviour
             missiles[i] = tir;
             newMissile.SetActive(false);
         }
-    }
-
-    public void Add(Tir missile)
-    {
-
     }
 
     public bool Shoot()

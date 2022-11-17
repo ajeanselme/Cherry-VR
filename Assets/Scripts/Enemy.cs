@@ -1,17 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Destroy screen shake")]
+    public Vector2 shakeDirection = new Vector2(.1f, 0);
+
+    public float shakeDuration = .1f;
+    public int vibrato = 1;
+    
     public void Init(Vector3 pos)
     {
         transform.position = pos;
-    }
-
-    private void OnDisable()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +40,10 @@ public class Enemy : MonoBehaviour
     {
         if(gameObject.activeInHierarchy)
             StartCoroutine(OnDeactivate());
+
+        Sequence destroySequence = DOTween.Sequence();
+        destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
+        destroySequence.Play();
     }
 
     IEnumerator OnDeactivate()

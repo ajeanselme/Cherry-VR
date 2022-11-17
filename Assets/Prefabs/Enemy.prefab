@@ -159,3 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2eca52136b04a43a45a50839ac7a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeDirection: {x: 0.1, y: 0}
+  shakeDuration: 0.1
+  vibrato: 1
