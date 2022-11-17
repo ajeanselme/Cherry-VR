@@ -9,6 +9,8 @@ public class EnemiesManager : MonoBehaviour
     [SerializeField] private int nbLine = 5;
     [SerializeField] private Vector3 spawnEnemyZero = new Vector3(-8, 5, 0);
     [SerializeField] private float enemiesStep = 0.5f;
+    [SerializeField] private float spacingHorizontal = 1.2f;
+    [SerializeField] private float spacingVertical = 1.2f;
     
     private List<Enemy> enemies;
     private bool moveRight = true;
@@ -21,18 +23,7 @@ public class EnemiesManager : MonoBehaviour
     void Awake()
     {
         enemies = new List<Enemy>(nbEnemies);
-        for (int i = 0; i < nbLine; i++)
-        {
-            for (int j = 0; j < nbEnemies / nbLine; j++)
-            {
-                Enemy enemy = Instantiate(enemyPrefab, transform);
-                enemy.Init(new Vector3(spawnEnemyZero.x + 0.5f + (1.2f * j), spawnEnemyZero.y + (1.2f * i), spawnEnemyZero.z));
-                enemies.Add(enemy);
-
-                if(!startWave)
-                    enemy.gameObject.SetActive(false);
-            }
-        }
+        SpawnEnemies();
     }
 
     void OnEnable()
@@ -74,6 +65,8 @@ public class EnemiesManager : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.S)) SpawnEnemies();
+
         timer += Time.deltaTime;
         if (timer > 0.5f)
         {
@@ -84,6 +77,8 @@ public class EnemiesManager : MonoBehaviour
 
     void HandleEnemiesMove()
     {
+        if (enemies.Count == 0) return;
+
         bool canMove = true;
         for (int i = 0; i < enemies.Count; i++)
         {
@@ -123,5 +118,44 @@ public class EnemiesManager : MonoBehaviour
             }
             moveRight = !moveRight;
         }
+    }
+
+    void SpawnEnemies()
+    {
+        if (enemies == null) return;
+
+        if (enemies.Count > 0)
+        {
+            int index = 0;
+            for (int i = 0; i < nbLine; i++)
+            {
+                for (int j = 0; j < nbEnemies / nbLine; j++)
+                {
+                    Enemy enemy = enemies[index++];
+                    enemy.Init(new Vector3(spawnEnemyZero.x + 0.5f + (spacingHorizontal * j), spawnEnemyZero.y + (spacingVertical * i), spawnEnemyZero.z));
+                    enemy.gameObject.SetActive(true);   
+                }
+            }
+            return;
+        }
+
+        for (int i = 0; i < nbLine; i++)
+        {
+            for (int j = 0; j < nbEnemies / nbLine; j++)
+            {
+                Enemy enemy = Instantiate(enemyPrefab, transform);
+                enemy.Init(new Vector3(spawnEnemyZero.x + 0.5f + (spacingHorizontal * j), spawnEnemyZero.y + (spacingVertical * i), spawnEnemyZero.z));
+                enemies.Add(enemy);
+
+                if (!startWave)
+                    enemy.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(spawnEnemyZero, 0.5f);
     }
 }
