@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -16,6 +18,19 @@ public class PlayerController : MonoBehaviour
     [Header("_______DEBUG______")]
     [SerializeField] float fireTimer = 0.0f;
 
+    [Header("Recoil animation")] 
+    public float duration = .1f;
+    public int vibrato = 0;
+    public float elasticity = 0;
+    public float moveBackDuration = .1f;
+    private float _baseY;
+
+
+    private void Start()
+    {
+        _baseY = transform.position.y;
+    }
+
     void Update()
     {
         Move();
@@ -28,12 +43,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (transform.position.x > -block)
-                transform.position += Vector3.left * speed * Time.deltaTime;
+                transform.position += Vector3.left * (speed * Time.deltaTime);
+
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             if (transform.position.x < block)
-                transform.position += Vector3.right * speed * Time.deltaTime;
+                transform.position += Vector3.right * (speed * Time.deltaTime);
         }
     }
 
@@ -50,7 +66,16 @@ public class PlayerController : MonoBehaviour
             muzzle.Play();
             missilePool.Activate();
             fireTimer = 0.0f;
+            PlayShootAnimation();
         }
+    }
+
+    private void PlayShootAnimation()
+    {
+        Sequence shootRecoil = DOTween.Sequence();
+        shootRecoil.Append(transform.DOPunchPosition(-transform.up, duration, vibrato, elasticity));
+        shootRecoil.Append(transform.DOMoveY(_baseY, moveBackDuration));
+        shootRecoil.Play();
     }
 
 }
