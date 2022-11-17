@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class MissilePool : MonoBehaviour
 {
-    public int nbMissiles = 100;
+    public int nbMissiles = 1;
+    public float missileSpeed = 10f;
     public GameObject missilePrefab;
 
     [Header("_____DEBUG_____")]
-    public List<Tir> missiles = new List<Tir>();
+    public Tir[] missiles;
 
     private void Awake()
     {
+        missiles = new Tir[nbMissiles];
+        
         // Instantiate Missiles for object pooling optimization
         for (int i = 0; i < nbMissiles; i++)
         {
             //GameObject newMissile = Instantiate(missilePrefab, transform.position, transform.rotation);
             GameObject newMissile = Instantiate(missilePrefab, transform);
             Tir tir = newMissile.GetComponent<Tir>();
-            missiles.Add(tir);
+            tir.speed = missileSpeed;
+            missiles[i] = tir;
             newMissile.SetActive(false);
         }
     }
@@ -28,7 +32,7 @@ public class MissilePool : MonoBehaviour
 
     }
 
-    public void Activate()
+    public bool Shoot()
     {
         foreach(Tir tir in missiles)
         {
@@ -40,7 +44,9 @@ public class MissilePool : MonoBehaviour
 
             // sinon active le et tir 1 fois
             tir.gameObject.SetActive(true);
-            break;
+            return true;
         }
+
+        return false;
     }
 }

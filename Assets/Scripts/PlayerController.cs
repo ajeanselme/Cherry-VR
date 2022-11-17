@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
     public float block = 10.0f;
-    public float fireRate = 0.2f;
 
     public MissilePool missilePool;
 
@@ -55,18 +54,13 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        //tir avec un cooldown
-        if(fireTimer < fireRate)
+        if (Input.GetKey(KeyCode.Space))
         {
-            fireTimer += Time.deltaTime;
-        }
-        
-        if (Input.GetKey(KeyCode.Space) && fireTimer > fireRate)
-        {
-            muzzle.Play();
-            missilePool.Activate();
-            fireTimer = 0.0f;
-            PlayShootAnimation();
+            if (missilePool.Shoot())
+            {
+                muzzle.Play();
+                PlayShootAnimation();
+            }
         }
     }
 
