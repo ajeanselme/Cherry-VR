@@ -18,7 +18,6 @@ public class Tir : MonoBehaviour
     {
         // Reset the missile to initial value
         disappearTimer = 0.0f;
-        transform.position = transform.parent.position;
     }
 
     void Update()
@@ -44,6 +43,12 @@ public class Tir : MonoBehaviour
         }
     }
 
+    public void Activate(Vector3 position)
+    {
+        transform.position = position;
+        gameObject.SetActive(true);
+    }
+    
     private void Deactivate()
     {
         StartCoroutine(OnDeactivate());

@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
         if(gameObject.activeInHierarchy)
             StartCoroutine(OnDeactivate());
 
+        ScoreManager.Instance.AddEnemyDeath();
+        
         Sequence destroySequence = DOTween.Sequence();
         destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
         destroySequence.Play();

@@ -160,5 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDirection: {x: 0.1, y: 0}
-  shakeDuration: 0.1
+  shakeDuration: 0.3
   vibrato: 1

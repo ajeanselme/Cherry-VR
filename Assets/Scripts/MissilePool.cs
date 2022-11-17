@@ -21,6 +21,7 @@ public class MissilePool : MonoBehaviour
             Tir tir = newMissile.GetComponent<Tir>();
             tir.speed = missileSpeed;
             missiles[i] = tir;
+            newMissile.transform.SetParent(null);
             newMissile.SetActive(false);
         }
     }
@@ -36,7 +37,7 @@ public class MissilePool : MonoBehaviour
             }
 
             // sinon active le et tir 1 fois
-            tir.gameObject.SetActive(true);
+            tir.Activate(transform.position);
             return true;
         }
 
