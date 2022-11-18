@@ -225,6 +225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294685583487978363, guid: 282d16ac46369ba4f82810145eb218ff,
+        type: 3}
+      propertyPath: disappearTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7620260564394048506, guid: 282d16ac46369ba4f82810145eb218ff,
         type: 3}
       propertyPath: m_Name
@@ -586,6 +591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215198375168755627, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: nbMissiles
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4725225921034178141, guid: 2ec67a88dbf930c4c9781e6044e244a0,
         type: 3}
