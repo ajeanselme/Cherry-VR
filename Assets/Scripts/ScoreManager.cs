@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,6 +9,13 @@ public class ScoreManager : MonoBehaviour
     public int enemyScoreValue = 75;
     public int score { get; private set; } = 0;
 
+    [Header("Score zoom punch")] 
+    public Vector2 zoomDirection = Vector2.one;
+    public float duration = .1f;
+    public int vibrato = 10;
+    public float elasticity = 1;
+    
+    
     public TMP_Text scoreText;
 
     private void Awake()
@@ -34,13 +37,15 @@ public class ScoreManager : MonoBehaviour
 
     public void AddEnemyDeath()
     {
-        score += enemyScoreValue;
-        
-        UpdateScoreText();
+        AddScore(enemyScoreValue);
     }
 
-    private void UpdateScoreText()
+    private void AddScore(int value)
     {
+        score += value;
         scoreText.text = score.ToString();
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(scoreText.transform.DOPunchScale(zoomDirection, duration, vibrato, elasticity));
+        sequence.Play();
     }
 }
