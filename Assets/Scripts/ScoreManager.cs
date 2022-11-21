@@ -84,7 +84,7 @@ public class ScoreManager : MonoBehaviour
 
     private void IncreaseMultiplier()
     {
-        if (multiplierSteps.Length > _currentMultiplier)
+        if (multiplierSteps.Length > _currentMultiplier + 1)
         {
             _currentMultiplier += 1;
             _multiplierProgressTarget = multiplierSteps[_currentMultiplier].scoreRequired;

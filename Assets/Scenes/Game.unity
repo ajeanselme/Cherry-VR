@@ -838,17 +838,17 @@ MonoBehaviour:
   multiplierSteps:
   - scoreRequired: 500
     barColor: {r: 0, g: 1, b: 0.15310955, a: 1}
-    barShakeForce: 0
+    barShakeForce: 1
     barShakeDuration: 1
     barShakeVibrato: 10
   - scoreRequired: 500
     barColor: {r: 0.97020435, g: 0, b: 1, a: 1}
-    barShakeForce: 0
+    barShakeForce: 2
     barShakeDuration: 1
     barShakeVibrato: 10
   - scoreRequired: 500
     barColor: {r: 0, g: 0.40189552, b: 1, a: 1}
-    barShakeForce: 0
+    barShakeForce: 3
     barShakeDuration: 1
     barShakeVibrato: 10
   multiplierFiller: {fileID: 1693386359}

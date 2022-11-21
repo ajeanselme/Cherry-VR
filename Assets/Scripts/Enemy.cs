@@ -18,9 +18,10 @@ public class Enemy : MonoBehaviour
         transform.position = pos;
     }
 
-    private void OnDisable()
+    public void Kill()
     {
         ScoreManager.Instance.AddEnemyDeath();
+        gameObject.SetActive(false);
 
         Sequence destroySequence = DOTween.Sequence();
         destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Missile")
         {
-            gameObject.SetActive(false);
+            Kill();
         }
     }
 
