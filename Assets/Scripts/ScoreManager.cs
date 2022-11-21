@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -10,25 +11,26 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
 
     public int enemyScoreValue = 75;
-    public float multiplierDecreaseFactor = 10f;
     public int score { get; private set; } = 0;
 
     [Header("Score zoom punch")] 
     public Vector2 zoomDirection = Vector2.one;
-    public float duration = .1f;
-    public int vibrato = 10;
-    public float elasticity = 1;
+    public float zoomDuration = .1f;
+    public int zoomVibrato = 10;
+    public float zoomElasticity = 1;
 
+    [Header("Multiplier")] 
     public MultiplierStep[] multiplierSteps;
-
+    public Image multiplierFiller;
+    public float barFillDuration = .2f;
+    public float multiplierDecreaseFactor = 10f;
+    
+    private MultiplierStep _currentMultiplierStep;
     private int _currentMultiplier;
     private float _multiplierProgress;
     private float _multiplierProgressTarget;
 
-    private float _lerpInterpolator;
-
     public TMP_Text scoreText;
-    public Image multiplierFiller;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "";
         _multiplierProgress = 0;
         _multiplierProgressTarget = multiplierSteps[0].scoreRequired;
+        _currentMultiplierStep = multiplierSteps[0];
         multiplierFiller.color = multiplierSteps[0].barColor;
         multiplierFiller.fillAmount = 0;
     }
@@ -56,16 +59,10 @@ public class ScoreManager : MonoBehaviour
         if (_multiplierProgress > 0)
         {
             _multiplierProgress -= Time.deltaTime * multiplierDecreaseFactor;
-            multiplierFiller.fillAmount = Mathf.Lerp( multiplierFiller.fillAmount,  _multiplierProgress / _multiplierProgressTarget, _lerpInterpolator);
-            _lerpInterpolator += .2f * Time.deltaTime;
-            if (_lerpInterpolator > 1)
-            {
-                _lerpInterpolator = 0;
-            }
+            multiplierFiller.DOFillAmount(_multiplierProgress / _multiplierProgressTarget, barFillDuration);
         }
         else
         {
-            _lerpInterpolator = 0f;
             DecreaseMultiplier();
         }
     }
@@ -80,22 +77,22 @@ public class ScoreManager : MonoBehaviour
         score += value;
         _multiplierProgress += value;
         scoreText.text = score.ToString();
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(scoreText.transform.DOPunchScale(zoomDirection, duration, vibrato, elasticity));
-        sequence.Play();
-        
+        PunchZoomScore();
         if(_multiplierProgress >= _multiplierProgressTarget)
             IncreaseMultiplier();
     }
 
     private void IncreaseMultiplier()
     {
-        if (multiplierSteps.Length > _currentMultiplier)
+        if (multiplierSteps.Length > _currentMultiplier + 1)
         {
             _currentMultiplier += 1;
             _multiplierProgressTarget = multiplierSteps[_currentMultiplier].scoreRequired;
             _multiplierProgress = _multiplierProgressTarget / 16f;
             multiplierFiller.color = multiplierSteps[_currentMultiplier].barColor;
+            _currentMultiplierStep = multiplierSteps[_currentMultiplier];
+            
+            ShakeBar();
         }
     }
     private void DecreaseMultiplier()
@@ -106,16 +103,37 @@ public class ScoreManager : MonoBehaviour
             _multiplierProgressTarget = multiplierSteps[_currentMultiplier].scoreRequired;
             _multiplierProgress = _multiplierProgressTarget / 20f;
             multiplierFiller.color = multiplierSteps[_currentMultiplier].barColor;
+            _currentMultiplierStep = multiplierSteps[_currentMultiplier];
         }
     }
 
+    private void PunchZoomScore()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(scoreText.transform.DOPunchScale(zoomDirection, zoomDuration, zoomVibrato, zoomElasticity));
+        sequence.Append(scoreText.transform.DOScale(Vector3.one, .1f));
+        sequence.Play();
+    }
+    
+    private void ShakeBar()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(multiplierFiller.gameObject.transform.parent.DOShakeRotation(
+            _currentMultiplierStep.barShakeDuration, 
+            new Vector3(0, 0, _currentMultiplierStep.barShakeForce),
+            _currentMultiplierStep.barShakeVibrato));
+        sequence.Append(multiplierFiller.gameObject.transform.parent.DORotate(Vector3.zero, .05f));
+        sequence.Play();
+    }
+
     [Serializable]
-    public struct MultiplierStep
+    public class MultiplierStep
     {
         public float scoreRequired;
         public Color barColor;
+        
+        public float barShakeForce;
+        public float barShakeDuration = 1f;
+        public int barShakeVibrato = 10;
     }
-    
-    
-
 }
