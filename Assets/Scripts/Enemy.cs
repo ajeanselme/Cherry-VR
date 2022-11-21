@@ -1,5 +1,7 @@
 using System.Collections;
 using DG.Tweening;
+using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,12 +18,20 @@ public class Enemy : MonoBehaviour
         transform.position = pos;
     }
 
+    private void OnDisable()
+    {
+        ScoreManager.Instance.AddEnemyDeath();
+
+        Sequence destroySequence = DOTween.Sequence();
+        destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
+        destroySequence.Play();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Missile")
         {
-            Deactivate();
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
@@ -29,41 +39,7 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("Alien collide with Player");
-
-            Deactivate();
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
-    }
-
-    private void Deactivate()
-    {
-        if(gameObject.activeInHierarchy)
-            StartCoroutine(OnDeactivate());
-
-        ScoreManager.Instance.AddEnemyDeath();
-        
-        Sequence destroySequence = DOTween.Sequence();
-        destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
-        destroySequence.Play();
-    }
-
-    IEnumerator OnDeactivate()
-    {
-        // Begin here any VFX & SFX & Feel
-
-        //while(true)
-        //{
-        //    // Add here conditions to break loop
-        //    //if()
-        //    //{
-        //    //    break;
-        //    //}
-
-        //    yield return null;
-        //}
-        yield return null;
-
-        gameObject.SetActive(false);
     }
 }

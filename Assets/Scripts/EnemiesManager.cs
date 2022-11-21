@@ -17,7 +17,8 @@ public class EnemiesManager : MonoBehaviour
     private float timer = 0;
 
     [Header("_____DEBUG____")]
-    [SerializeField] private bool startWave = false;
+    //[SerializeField] private bool startWave = false;
+    public bool startWave = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -65,7 +66,11 @@ public class EnemiesManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.S)) SpawnEnemies();
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (!startWave) startWave = true;
+            SpawnEnemies();
+        }
 
         timer += Time.deltaTime;
         if (timer > 0.5f)
