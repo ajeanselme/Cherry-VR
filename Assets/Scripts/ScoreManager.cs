@@ -87,11 +87,13 @@ public class ScoreManager : MonoBehaviour
         if (multiplierSteps.Length > _currentMultiplier + 1)
         {
             _currentMultiplier += 1;
-            _multiplierProgressTarget = multiplierSteps[_currentMultiplier].scoreRequired;
-            _multiplierProgress = _multiplierProgressTarget / 16f;
-            multiplierFiller.color = multiplierSteps[_currentMultiplier].barColor;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
-            
+
+            _multiplierProgressTarget = _currentMultiplierStep.scoreRequired;
+            _multiplierProgress = _multiplierProgressTarget / 16f;
+            multiplierFiller.color = _currentMultiplierStep.barColor;
+            multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
+                _currentMultiplierStep.barScaleDuration);
             ShakeBar();
         }
     }
@@ -100,10 +102,14 @@ public class ScoreManager : MonoBehaviour
         if (_currentMultiplier > 0)
         {
             _currentMultiplier -= 1;
-            _multiplierProgressTarget = multiplierSteps[_currentMultiplier].scoreRequired;
-            _multiplierProgress = _multiplierProgressTarget / 20f;
-            multiplierFiller.color = multiplierSteps[_currentMultiplier].barColor;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
+
+            _multiplierProgressTarget = _currentMultiplierStep.scoreRequired;
+            _multiplierProgress = _multiplierProgressTarget / 20f;
+            multiplierFiller.color = _currentMultiplierStep.barColor;
+            
+            multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
+                _currentMultiplierStep.barScaleDuration);
         }
     }
 
@@ -131,7 +137,9 @@ public class ScoreManager : MonoBehaviour
     {
         public float scoreRequired;
         public Color barColor;
-        
+
+        public Vector2 barScale = Vector2.one;
+        public float barScaleDuration = .2f;
         public float barShakeForce;
         public float barShakeDuration = 1f;
         public int barShakeVibrato = 10;
