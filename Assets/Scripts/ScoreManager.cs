@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour
     private float _multiplierProgressTarget;
 
     public TMP_Text scoreText;
+    public TMP_Text multiplierText;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class ScoreManager : MonoBehaviour
         _currentMultiplierStep = multiplierSteps[0];
         multiplierFiller.color = multiplierSteps[0].barColor;
         multiplierFiller.fillAmount = 0;
+        multiplierText.text = "";
     }
 
     private void Update()
@@ -88,13 +90,7 @@ public class ScoreManager : MonoBehaviour
         {
             _currentMultiplier += 1;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
-
-            _multiplierProgressTarget = _currentMultiplierStep.scoreRequired;
-            _multiplierProgress = _multiplierProgressTarget / 16f;
-            multiplierFiller.color = _currentMultiplierStep.barColor;
-            multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
-                _currentMultiplierStep.barScaleDuration);
-            ShakeBar();
+            UpdateMultiplierBar();
         }
     }
     private void DecreaseMultiplier()
@@ -103,14 +99,25 @@ public class ScoreManager : MonoBehaviour
         {
             _currentMultiplier -= 1;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
-
-            _multiplierProgressTarget = _currentMultiplierStep.scoreRequired;
-            _multiplierProgress = _multiplierProgressTarget / 20f;
-            multiplierFiller.color = _currentMultiplierStep.barColor;
-            
-            multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
-                _currentMultiplierStep.barScaleDuration);
+            UpdateMultiplierBar(false);
         }
+    }
+
+    private void UpdateMultiplierBar(bool shakeBar = true)
+    {
+        _multiplierProgressTarget = _currentMultiplierStep.scoreRequired;
+        _multiplierProgress = _multiplierProgressTarget / 20f;
+        multiplierFiller.color = _currentMultiplierStep.barColor;
+            
+        multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
+            _currentMultiplierStep.barScaleDuration);
+        if (_currentMultiplier > 0)
+            multiplierText.text = "x" + _currentMultiplier;
+        else
+            multiplierText.text = "";
+
+        if(shakeBar)
+            ShakeBar();
     }
 
     private void PunchZoomScore()
