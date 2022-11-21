@@ -341,7 +341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -25}
+  m_AnchoredPosition: {x: -150, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522385417
@@ -831,21 +831,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyScoreValue: 75
-  multiplierDecreaseFactor: 10
   zoomDirection: {x: 1, y: 1}
-  duration: 0.1
-  vibrato: 10
-  elasticity: 1
+  zoomDuration: 0.1
+  zoomVibrato: 10
+  zoomElasticity: 1
   multiplierSteps:
   - scoreRequired: 500
     barColor: {r: 0, g: 1, b: 0.15310955, a: 1}
-  - scoreRequired: 2000
+    barShakeForce: 0.5
+    barShakeDuration: 1
+    barShakeVibrato: 10
+  - scoreRequired: 500
     barColor: {r: 0.97020435, g: 0, b: 1, a: 1}
-  - scoreRequired: 5000
+    barShakeForce: 1
+    barShakeDuration: 1
+    barShakeVibrato: 10
+  - scoreRequired: 500
     barColor: {r: 0, g: 0.40189552, b: 1, a: 1}
-  _multiplierProgressTarget: 0
-  scoreText: {fileID: 522385417}
+    barShakeForce: 1.5
+    barShakeDuration: 0.1
+    barShakeVibrato: 10
   multiplierFiller: {fileID: 1693386359}
+  barFillDuration: 0.2
+  multiplierDecreaseFactor: 20
+  scoreText: {fileID: 522385417}
 --- !u!4 &1162581644
 Transform:
   m_ObjectHideFlags: 0
@@ -894,10 +903,10 @@ RectTransform:
   m_Father: {fileID: 1783647255}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 207}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -21}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1693386357
 GameObject:
@@ -1071,7 +1080,7 @@ RectTransform:
   - {fileID: 1501634858}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.512}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1128,7 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
