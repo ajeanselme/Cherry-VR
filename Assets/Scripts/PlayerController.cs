@@ -2,12 +2,14 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.VFX;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
     public float block = 10.0f;
 
+    public GameObject TrailLeft, TrailRight;
     public MissilePool missilePool;
 
     [SerializeField] VisualEffect muzzle;
@@ -44,8 +46,18 @@ public class PlayerController : MonoBehaviour
         if (move)
         {
             if (transform.position.x < block || transform.position.x > -block)
+            {
                 transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
-
+                if (transform.position.x > 0)
+                    TrailLeft.SetActive(true);
+                else if (transform.position.x <0)
+                    TrailRight.SetActive(true);
+            }
+        }
+        else
+        {
+            TrailLeft.SetActive(false);
+            TrailRight.SetActive(false);
         }
 
     }
@@ -84,3 +96,4 @@ public class PlayerController : MonoBehaviour
             shoot = false;
     }
 }
+
