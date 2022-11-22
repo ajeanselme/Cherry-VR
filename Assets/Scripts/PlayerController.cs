@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour
         {
             if (missilePool.Shoot())
             {
-                muzzle.Play();
+                if(muzzle != null)
+                    muzzle.Play();
                 PlayShootAnimation();
             }
         }

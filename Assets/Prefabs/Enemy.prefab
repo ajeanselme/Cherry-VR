@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
-  m_fontStyle: 16
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -223,8 +223,9 @@ GameObject:
   - component: {fileID: 2121030903}
   - component: {fileID: 2121030902}
   - component: {fileID: 2121030901}
+  - component: {fileID: 1058286617}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,6 +314,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!111 &1058286617
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121030899}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cdb27467e6d7dfd468811bff7028c666, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cdb27467e6d7dfd468811bff7028c666, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2096839044389330227
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +425,7 @@ GameObject:
   - component: {fileID: 8310950673420912815}
   - component: {fileID: 5260967968882395770}
   - component: {fileID: 54015944058398510}
+  - component: {fileID: 1058286611}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Alien
@@ -476,3 +494,31 @@ MonoBehaviour:
   shakeDirection: {x: 0.1, y: 0}
   shakeDuration: 0.3
   vibrato: 1
+  enemyText: {fileID: 1058286611}
+  isPendingKill: 0
+--- !u!114 &1058286611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823168305798623806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b6e8bbf4c99e24d8618ab2b667777d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasEnemy: {fileID: 2121030903}
+  anim: {fileID: 1058286617}
+  text: {fileID: 1354727603}
+  cries:
+  - AHH
+  - AH !
+  - URGH !
+  - NOO !
+  - NO
+  - ARGH !
+  - OUIN !
+  - AIYA !
+  - BLEH !
+  - XoX

@@ -7,6 +7,8 @@ public class EnemyText : MonoBehaviour
 {
     public Canvas canvasEnemy;
     public Animation anim;
+    public TMP_Text text;
+    public List<string> cries = new List<string> ();
     private void OnEnable()
     {
         canvasEnemy.gameObject.SetActive(false);
@@ -15,6 +17,8 @@ public class EnemyText : MonoBehaviour
     public void Play()
     {
         canvasEnemy.gameObject.SetActive(true);
+        int rng = Random.Range(0, cries.Count);
+        text.text = cries[rng];
         //anim.Play();
     }
 
