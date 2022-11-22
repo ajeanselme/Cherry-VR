@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public float block = 10.0f;
 
+    public GameObject TrailLeft, TrailRight;
     public MissilePool missilePool;
 
     [SerializeField] VisualEffect muzzle;
@@ -39,13 +40,29 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (transform.position.x > -block)
+            {
+                TrailRight.SetActive(true);
                 transform.position += Vector3.left * (speed * Time.deltaTime);
+            }
+            else
+                TrailRight.SetActive(false);
 
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             if (transform.position.x < block)
+            {
+                TrailLeft.SetActive(true);
                 transform.position += Vector3.right * (speed * Time.deltaTime);
+            }
+            else
+                TrailLeft.SetActive(false);
+
+        } 
+        else
+        {
+            TrailLeft.SetActive(false);
+            TrailRight.SetActive(false);
         }
     }
 
