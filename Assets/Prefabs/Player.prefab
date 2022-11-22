@@ -442,7 +442,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -451,7 +451,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -511,8 +511,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.67023134, a: 0.29411766}
-      key1: {r: 1, g: 0.67358494, b: 0.9447332, a: 0.30980393}
+      key0: {r: 0.6981132, g: 0, b: 0.47510466, a: 0.39607844}
+      key1: {r: 0.9716981, g: 0.32451043, b: 0.86253405, a: 0.06666667}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -621,7 +621,7 @@ MonoBehaviour:
   TrailLeft: {fileID: 601371094706496824}
   TrailRight: {fileID: 36891233610033075}
   missilePool: {fileID: 4215198375168755627}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 4725225921034178141}
   fireTimer: 0
   duration: 0.1
   vibrato: 0

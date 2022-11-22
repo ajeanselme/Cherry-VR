@@ -1312,6 +1312,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2254725256922843507, guid: a47b78ada7cbfd4469a647ac25f1e51e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3381606213187938353, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.size
@@ -1427,6 +1432,11 @@ PrefabInstance:
       propertyPath: fireRate
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4709688849152886407, guid: a47b78ada7cbfd4469a647ac25f1e51e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6125418351676826055, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
       propertyPath: nbMissiles
@@ -1436,6 +1446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: missileSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432840220242658132, guid: a47b78ada7cbfd4469a647ac25f1e51e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8034068929116954864, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
@@ -1507,6 +1522,11 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 829812049}
+    - target: {fileID: 8069799063073128927, guid: a47b78ada7cbfd4469a647ac25f1e51e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8078549323823232642, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
       propertyPath: maxHealth
