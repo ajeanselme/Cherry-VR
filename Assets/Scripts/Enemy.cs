@@ -12,7 +12,17 @@ public class Enemy : MonoBehaviour
 
     public float shakeDuration = .1f;
     public int vibrato = 1;
-    
+
+    public EnemyText enemyText;
+
+    [Header("_____Debug_____")]
+    public bool isPendingKill = false;
+
+    private void OnEnable()
+    {
+        isPendingKill = false;
+    }
+
     public void Init(Vector3 pos)
     {
         transform.position = pos;
@@ -20,8 +30,8 @@ public class Enemy : MonoBehaviour
 
     public void Kill()
     {
-        ScoreManager.Instance.AddEnemyDeath();
-        gameObject.SetActive(false);
+        isPendingKill = true;
+        StartCoroutine(OnKill());
 
         CameraManager.Instance.ShakeCamera(shakeDuration, shakeDirection, vibrato);
     }
@@ -40,5 +50,33 @@ public class Enemy : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        else if (collision.gameObject.CompareTag("Missile"))
+        {
+            if(!isPendingKill)
+                Kill();
+        }
+    }
+
+    IEnumerator OnKill()
+    {
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddEnemyDeath();
+        }
+        Sequence destroySequence = DOTween.Sequence();
+        destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
+        destroySequence.Play();
+
+        enemyText.Play();
+        while (true)
+        {
+            if(!enemyText.IsPlaying())
+            {
+                break;
+            }
+            yield return null;
+        }
+
+        gameObject.SetActive(false);
     }
 }
