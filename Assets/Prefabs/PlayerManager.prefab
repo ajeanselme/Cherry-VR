@@ -84,6 +84,48 @@ PrefabInstance:
       propertyPath: fireRate
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: moveInput.m_Reference
+      value: 
+      objectReference: {fileID: -5842669356097522361, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: shootInput.m_Reference
+      value: 
+      objectReference: {fileID: -4761943319531442990, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: moveInput.m_Action.m_Id
+      value: f5762c02-8262-4d45-926a-aeada9087d78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: moveInput.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: shootInput.m_Action.m_Id
+      value: 053a7f56-ef3a-4f0c-afda-17b167b77928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: moveInput.m_Action.m_Name
+      value: Move Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: shootInput.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
+      propertyPath: shootInput.m_Action.m_Name
+      value: Shoot Input
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec67a88dbf930c4c9781e6044e244a0, type: 3}
 --- !u!1 &2338536485725428630 stripped
