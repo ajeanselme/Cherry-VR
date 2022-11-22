@@ -23,9 +23,7 @@ public class Enemy : MonoBehaviour
         ScoreManager.Instance.AddEnemyDeath();
         gameObject.SetActive(false);
 
-        Sequence destroySequence = DOTween.Sequence();
-        destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
-        destroySequence.Play();
+        CameraManager.Instance.ShakeCamera(shakeDuration, shakeDirection, vibrato);
     }
 
     private void OnTriggerEnter(Collider other)
