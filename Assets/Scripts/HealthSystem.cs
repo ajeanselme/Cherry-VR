@@ -30,12 +30,15 @@ public class HealthSystem : MonoBehaviour
     private void Awake()
     {
         health = maxHealth;
-        foreach (var volumeComponent in postProcessProfile.components)
+        if(postProcessProfile != null)
         {
-            if (volumeComponent is Vignette vignette)
+            foreach (var volumeComponent in postProcessProfile.components)
             {
-                _vignette = vignette;
-                _vignette.intensity.value = 0f;
+                if (volumeComponent is Vignette vignette)
+                {
+                    _vignette = vignette;
+                    _vignette.intensity.value = 0f;
+                }
             }
         }
     }
