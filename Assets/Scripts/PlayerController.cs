@@ -1,12 +1,15 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.VFX;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
     public float block = 10.0f;
 
+    public GameObject TrailLeft, TrailRight;
     public MissilePool missilePool;
 
     [SerializeField] VisualEffect muzzle;
@@ -21,6 +24,10 @@ public class PlayerController : MonoBehaviour
     public float moveBackDuration = .1f;
     private float _baseY;
 
+    public InputActionProperty moveInput;
+    public InputActionProperty shootInput;
+    private bool move;
+    private bool shoot;
 
     private void Start()
     {
@@ -29,33 +36,48 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        HandleInput();
         Move();
         Shoot();
     }
 
     private void Move()
     {
-        //gauche droite avec une limitation (block)
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (move)
         {
-            if (transform.position.x > -block)
-                transform.position += Vector3.left * (speed * Time.deltaTime);
-
+            if (moveInput.action.ReadValue<Vector2>().x > 0 && transform.position.x < block)
+            {
+                transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
+                TrailLeft.SetActive(true);
+                TrailRight.SetActive(false);
+            }
+            else if (moveInput.action.ReadValue<Vector2>().x < 0 && transform.position.x > -block)
+            {
+                transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
+                TrailRight.SetActive(true);
+                TrailLeft.SetActive(false);
+            }
+            else
+            {
+                TrailLeft.SetActive(false);
+                TrailRight.SetActive(false);
+            }
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else
         {
-            if (transform.position.x < block)
-                transform.position += Vector3.right * (speed * Time.deltaTime);
+            TrailLeft.SetActive(false);
+            TrailRight.SetActive(false);
         }
     }
 
     private void Shoot()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (shoot)
         {
             if (missilePool.Shoot())
             {
-                muzzle.Play();
+                if(muzzle != null)
+                    muzzle.Play();
                 PlayShootAnimation();
             }
         }
@@ -69,4 +91,17 @@ public class PlayerController : MonoBehaviour
         shootRecoil.Play();
     }
 
+    private void HandleInput()
+    {
+        if (moveInput.action.WasPressedThisFrame())
+            move = true;
+        if (moveInput.action.WasReleasedThisFrame())
+            move = false;
+        
+        if (shootInput.action.WasPressedThisFrame())
+            shoot = true;
+        else
+            shoot = false;
+    }
 }
+

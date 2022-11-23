@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
+    public List<GameObject> enemyPrefabs = new List<GameObject>();
+
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private int nbEnemies = 55;
     [SerializeField] private int nbLine = 5;
@@ -148,7 +150,9 @@ public class EnemiesManager : MonoBehaviour
         {
             for (int j = 0; j < nbEnemies / nbLine; j++)
             {
-                Enemy enemy = Instantiate(enemyPrefab, transform);
+                int rng = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+                GameObject enemyObject = Instantiate(enemyPrefabs[rng], transform);
+                Enemy enemy = enemyObject.GetComponent<Enemy>();
                 enemy.Init(new Vector3(spawnEnemyZero.x + 0.5f + (spacingHorizontal * j), spawnEnemyZero.y + (spacingVertical * i), spawnEnemyZero.z));
                 enemies.Add(enemy);
 

@@ -20,13 +20,13 @@ public class PlayerManager : MonoBehaviour
     void OnEnable()
     {
         MenuManager.OnPlay += StartPlayer;
-        HealthSystem.OnHealthZero += EndPlayer;
+        HealthSystem.OnPlayerDeath += EndPlayer;
     }
 
     void OnDisable()
     {
         MenuManager.OnPlay -= StartPlayer;
-        HealthSystem.OnHealthZero -= EndPlayer;
+        HealthSystem.OnPlayerDeath -= EndPlayer;
     }
 
     private void StartPlayer()

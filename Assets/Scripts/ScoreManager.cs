@@ -13,6 +13,9 @@ public class ScoreManager : MonoBehaviour
     public int enemyScoreValue = 75;
     public int score { get; private set; } = 0;
 
+    [Header("Score")] 
+    public GameObject scoreDetailPrefab;
+    
     [Header("Score zoom punch")] 
     public Vector2 zoomDirection = Vector2.one;
     public float zoomDuration = .1f;
@@ -79,6 +82,7 @@ public class ScoreManager : MonoBehaviour
         score += value;
         _multiplierProgress += value;
         scoreText.text = score.ToString();
+        PlayScoreDetailAnimation(value);
         PunchZoomScore();
         if(_multiplierProgress >= _multiplierProgressTarget)
             IncreaseMultiplier();
@@ -120,6 +124,21 @@ public class ScoreManager : MonoBehaviour
             ShakeBar();
     }
 
+    private void PlayScoreDetailAnimation(int score)
+    {
+        GameObject scoreDetail = Instantiate(scoreDetailPrefab, scoreText.transform.parent);
+        TMP_Text scoreDetailText = scoreDetail.GetComponent<TMP_Text>();
+        scoreDetailText.text = "+" + score;
+        float baseY = scoreDetail.transform.position.y;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(DOTween.To(() => scoreDetailText.alpha, x => scoreDetailText.alpha = x, 0f, .5f));
+        sequence.Join(DOTween.To(() => scoreDetail.transform.position.y,
+            y => scoreDetail.transform.position = new Vector3(scoreDetail.transform.position.x, y),
+            baseY - 50, .5f));
+        sequence.OnComplete(() => Destroy(scoreDetail));
+        sequence.Play();
+    }
+    
     private void PunchZoomScore()
     {
         Sequence sequence = DOTween.Sequence();

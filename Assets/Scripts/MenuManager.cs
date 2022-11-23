@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using DG.Tweening;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class MenuManager : MonoBehaviour
     public GameObject credits;
     public GameObject pause;
     public GameObject gameOver;
+
+    public TMP_Text scoreText;
 
     [Header("____DEBUG_____")]
     [SerializeField] private bool isInGame = false;
@@ -125,6 +128,19 @@ public class MenuManager : MonoBehaviour
     {
         isInGame = false;
         gameOver.SetActive(true);
+        PlayFinalScoreFillAnimation();
+        scoreText.text = ScoreManager.Instance.score.ToString();
+    }
+
+    private void PlayFinalScoreFillAnimation()
+    {
+        int fillValue = 0;
+        DOTween.To(() => fillValue, x =>
+            {
+                fillValue = x;
+                scoreText.text = x.ToString();
+            },
+            ScoreManager.Instance.score, 5f);
     }
 
 
