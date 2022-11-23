@@ -627,6 +627,32 @@ MonoBehaviour:
   vibrato: 0
   elasticity: 0
   moveBackDuration: 0.1
+  moveInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Move Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 217bbee3-f89e-4559-ab60-cd6a813c05a7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5842669356097522361, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  shootInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Shoot Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: fc907eea-801c-414b-b32b-e3aa8ce52849
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -4761943319531442990, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!114 &2261505002890809582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +665,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85dddc11abe724f46b435063ada72928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  postProcessProfile: {fileID: 0}
   maxHealth: 10
+  timeToFullRedVignette: 1
+  timeToRetractRedVignette: 2
+  fullVignetteIntensity: 0.7
+  damageScreenShakeDuration: 0.5
+  damageScreenShakeVibrato: 10
+  damageScreenShakeStrength: {x: 1, y: 1}
   health: 10
 --- !u!1 &6922198770755343635
 GameObject:
