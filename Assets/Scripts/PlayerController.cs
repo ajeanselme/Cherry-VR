@@ -45,13 +45,22 @@ public class PlayerController : MonoBehaviour
     {
         if (move)
         {
-            if (transform.position.x < block || transform.position.x > -block)
+            if (moveInput.action.ReadValue<Vector2>().x > 0 && transform.position.x < block)
             {
                 transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
-                if (transform.position.x > 0)
-                    TrailLeft.SetActive(true);
-                else if (transform.position.x <0)
-                    TrailRight.SetActive(true);
+                TrailLeft.SetActive(true);
+                TrailRight.SetActive(false);
+            }
+            else if (moveInput.action.ReadValue<Vector2>().x < 0 && transform.position.x > -block)
+            {
+                transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
+                TrailRight.SetActive(true);
+                TrailLeft.SetActive(false);
+            }
+            else
+            {
+                TrailLeft.SetActive(false);
+                TrailRight.SetActive(false);
             }
         }
         else
@@ -59,7 +68,6 @@ public class PlayerController : MonoBehaviour
             TrailLeft.SetActive(false);
             TrailRight.SetActive(false);
         }
-
     }
 
     private void Shoot()
