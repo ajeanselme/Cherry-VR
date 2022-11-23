@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "com.persistant-studios.popcornfx": {
+      "version": "file:D:/PROGRAMMES/PopcornFX/Unity_PopcornFXPlugin_v2.14.2_Win_Linux_MacOS_Android_iOS/com.persistant-studios.popcornfx",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.persistant-studios.popcornfx.urp": {
+      "version": "file:D:/PROGRAMMES/PopcornFX/UnityURP_PopcornFXPlugin_v2.14.2/com.persistant-studios.popcornfx.urp",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "10.2.2",
+        "com.unity.render-pipelines.universal": "10.2.2",
+        "com.persistant-studios.popcornfx": "2.10.2"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 1,
