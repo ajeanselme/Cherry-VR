@@ -1177,6 +1177,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c7892fae-4d32-4ae8-92dd-639b672e03fe",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3d7f3ab1-1021-4c69-ae46-36b97807952d",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -1190,17 +1201,6 @@
                     "name": "",
                     "id": "54ed2b08-02a7-40a2-aa57-16f5fc840e37",
                     "path": "<XRController>{RightHand}/triggerPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c7892fae-4d32-4ae8-92dd-639b672e03fe",
-                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
