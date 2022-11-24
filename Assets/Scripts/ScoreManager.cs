@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     public float multiplierDecreaseFactor = 10f;
     
     private MultiplierStep _currentMultiplierStep;
-    private int _currentMultiplier;
+    private int _currentMultiplier = 1;
     private float _multiplierProgress;
     private float _multiplierProgressTarget;
 
@@ -79,8 +79,10 @@ public class ScoreManager : MonoBehaviour
 
     private void AddScore(int value)
     {
-        score += value;
+        score += value * _currentMultiplier;
         _multiplierProgress += value;
+        if (_multiplierProgress > _multiplierProgressTarget)
+            _multiplierProgress = _multiplierProgressTarget;
         scoreText.text = score.ToString();
         PlayScoreDetailAnimation(value);
         PunchZoomScore();
@@ -99,7 +101,7 @@ public class ScoreManager : MonoBehaviour
     }
     private void DecreaseMultiplier()
     {
-        if (_currentMultiplier > 0)
+        if (_currentMultiplier > 1)
         {
             _currentMultiplier -= 1;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
@@ -115,7 +117,7 @@ public class ScoreManager : MonoBehaviour
             
         multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
             _currentMultiplierStep.barScaleDuration);
-        if (_currentMultiplier > 0)
+        if (_currentMultiplier > 1)
             multiplierText.text = "x" + _currentMultiplier;
         else
             multiplierText.text = "";
