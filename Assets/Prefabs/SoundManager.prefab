@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 2
   sounds:
-  - name: 
+  - name: Canon
     volume: 1
     pitch: 1
     spatialBlend: 0
@@ -55,5 +55,76 @@ MonoBehaviour:
     mute: 0
     loop: 0
     playOnAwake: 0
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 031c9b1d95c5c1442ab749fc317adbe7, type: 3}
+    - {fileID: 8300000, guid: f75ec5535233cac429ade812df6e52fa, type: 3}
+    - {fileID: 8300000, guid: 96cf8534806d906478979d960d8965da, type: 3}
+    - {fileID: 8300000, guid: c85415ae953191741b08739563d64697, type: 3}
+    source: {fileID: 0}
+  - name: Heart
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 0
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 539d88b10d1fbf24ea304bc8aff8ed5a, type: 3}
+    - {fileID: 8300000, guid: ec4cff07d1861f442ae10e513ae2c222, type: 3}
+    source: {fileID: 0}
+  - name: Miaou
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 0
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 5f302f5c953679640a697fa8f18f36a8, type: 3}
+    source: {fileID: 0}
+  - name: Blood
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 0
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 27d4649f68a13224681250d061cd88bf, type: 3}
+    - {fileID: 8300000, guid: 84786baac64186d47babdc9abe276429, type: 3}
+    - {fileID: 8300000, guid: c793724dfc091e249873c74281323c67, type: 3}
+    - {fileID: 8300000, guid: 5bad59343b1c1a245be31dfe51e97579, type: 3}
+    - {fileID: 8300000, guid: 0e9a0b0e6898f704e8b62378e853a85a, type: 3}
+    source: {fileID: 0}
+  - name: Bubble
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 0
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 5e3e930e31951fa4bb866b73da9958bb, type: 3}
+    - {fileID: 8300000, guid: 130142da0e2521a4cb5de46e2a40e464, type: 3}
+    source: {fileID: 0}
+  - name: Impact
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 0
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: dc663fca8fa273c47bc6081b8ae3e878, type: 3}
+    - {fileID: 8300000, guid: 8cd1cda43f756f44691f58b9e00bc97a, type: 3}
     source: {fileID: 0}

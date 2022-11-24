@@ -34,12 +34,18 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PopcornFX_Disto
+  - PopcornFX_3
+  - PopcornFX_2
+  - PopcornFX_1
+  - PopcornFX_0
   m_SortingLayers:
+  - name: PopcornFX
+    uniqueID: 2046463942
+    locked: 0
   - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: PopcornFXUI
     uniqueID: 0
     locked: 0

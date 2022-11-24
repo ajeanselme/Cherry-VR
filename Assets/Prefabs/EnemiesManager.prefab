@@ -44,10 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbaeae1f6ea5ee4da0be24a84b05d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 7823168305798623806, guid: 50ed5d6e4ed3959409de8b572f83bd21, type: 3}
+  - {fileID: 7823168305798623806, guid: c26898c406eba424aad872d566b572de, type: 3}
+  - {fileID: 7823168305798623806, guid: 499efcf0abbbfd946b59bd6588ebe0b8, type: 3}
+  - {fileID: 7823168305798623806, guid: d58f4df6d3cf82f4592c601725c32bb8, type: 3}
   enemyPrefab: {fileID: 54015944058398510, guid: 70caf1cd1234f2c4498efa050e7e0d16,
     type: 3}
   nbEnemies: 80
   nbLine: 5
   spawnEnemyZero: {x: -16, y: 15, z: 0}
   enemiesStep: 1
+  spacingHorizontal: 1.2
+  spacingVertical: 1.2
   startWave: 1

@@ -1448,6 +1448,7 @@ MonoBehaviour:
   credits: {fileID: 51095528826382095}
   pause: {fileID: 51095527837349323}
   gameOver: {fileID: 4468008946574483879}
+  scoreText: {fileID: 4808203974624833283}
   isInGame: 0
 --- !u!1 &51095528400384029
 GameObject:
