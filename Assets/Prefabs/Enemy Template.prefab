@@ -414,6 +414,7 @@ MonoBehaviour:
   vibrato: 1
   enemyText: {fileID: 1058286611}
   isPendingKill: 0
+  deathSound: Blood
 --- !u!114 &1058286611
 MonoBehaviour:
   m_ObjectHideFlags: 0

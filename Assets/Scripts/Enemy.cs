@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     [Header("_____Debug_____")]
     public bool isPendingKill = false;
 
+    [Header("_____SOUND____")]
+    public string deathSound = "";
+
     private void OnEnable()
     {
         isPendingKill = false;
@@ -62,9 +65,10 @@ public class Enemy : MonoBehaviour
             ScoreManager.Instance.AddEnemyDeath();
         }
         
-        if(EffectManager.Instance.IsActivated("EnemyDeath"))
+        if(EffectManager.Instance.IsActivated("EnemyDeath")){
             CameraManager.Instance.ShakeCamera(shakeDuration, shakeDirection, vibrato);
-
+            SoundManager.Instance.PlaySound(deathSound);
+        }
         enemyText.Play();
         while (true)
         {

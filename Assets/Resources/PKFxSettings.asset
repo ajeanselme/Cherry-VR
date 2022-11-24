@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GeneralCategory: 1
   m_AssetCategory: 1
-  m_EnableRaycastForCollisions: 0
+  m_EnableRaycastForCollisions: 1
   m_PopcornPackFxPath: ../../PROGRAMMES/PopcornFX/IIM
-  m_UnityPackFxPath: IIM
+  m_UnityPackFxPath: /PopcornFXAssets
   m_EnableForceDeterminism: 0
   m_EnablePopcornFXLogs: 1
   m_EnableEffectHotreload: 1
@@ -28,15 +28,18 @@ MonoBehaviour:
   - PopcornFX_2
   - PopcornFX_3
   - PopcornFX_Disto
-  m_AssetGUID: []
+  m_AssetGUID:
+  - m_Path: Assets/PopcornFXAssets/BloodExplosion.pkfx.asset
+    m_New: 6d233bfffc0dcca40a014ad504a52454
+    m_Old: 6d233bfffc0dcca40a014ad504a52454
   m_RenderingCategory: 1
   m_DebugEffectsBoundingBoxes: 0
   m_DebugEffectsRaycasts: 0
   m_MaterialFactory: {fileID: 11400000, guid: 4fe9596c9613205499e2bccac4870dd9, type: 2}
-  m_EnableSoftParticles: 1
+  m_EnableSoftParticles: 0
   m_DisableDynamicEffectBounds: 0
   m_UseGPUBillboarding: 0
-  m_UseMeshInstancing: 1
+  m_UseMeshInstancing: 0
   m_EnableLocalizedPages: 1
   m_EnableLocalizedByDefault: 0
   m_FreeUnusedBatches: 0
@@ -44,7 +47,42 @@ MonoBehaviour:
   m_AutomaticMeshResizing: 1
   m_VertexBufferSizeMultiplicator: 0.5
   m_IndexBufferSizeMultiplicator: 0.5
-  m_MeshesDefaultSize: []
+  m_MeshesDefaultSize:
+  - m_GeneratedName: Billboard  Color Diffuse  Additive UVs Textures/Liquid/Blood_drop.svg.png
+      (none) (none) (none) (none) (none) (none) (none) 1
+    m_DefaultVertexBufferSize: 384
+    m_DefaultIndexBufferSize: 1155
+    m_StaticWorldBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 50, y: 50, z: 50}
+  - m_GeneratedName: Billboard  Atlas AnimBlend Color Diffuse  AlphaBlend UVs Textures/Smoke/AtmoSmoke_7x7.tga
+      (none) (none) (none) (none) (none) (none) (none) 1
+    m_DefaultVertexBufferSize: 384
+    m_DefaultIndexBufferSize: 1155
+    m_StaticWorldBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 50, y: 50, z: 50}
+  - m_GeneratedName: Billboard  Color Diffuse  AlphaBlend UVs Textures/Liquid/BloodStain_01.tga
+      (none) (none) (none) (none) (none) (none) (none) 1
+    m_DefaultVertexBufferSize: 2202
+    m_DefaultIndexBufferSize: 3306
+    m_StaticWorldBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 50, y: 50, z: 50}
+  - m_GeneratedName: Billboard  Atlas Color Diffuse  Additive UVs Textures/Liquid/Blood_01c.tga
+      (none) (none) (none) (none) (none) (none) (none) 1
+    m_DefaultVertexBufferSize: 384
+    m_DefaultIndexBufferSize: 1155
+    m_StaticWorldBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 50, y: 50, z: 50}
+  - m_GeneratedName: Billboard  Color Diffuse  AlphaBlend UVs Textures/Liquid/Blood_01.tga
+      (none) (none) (none) (none) (none) (none) (none) 1
+    m_DefaultVertexBufferSize: 582
+    m_DefaultIndexBufferSize: 1155
+    m_StaticWorldBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 50, y: 50, z: 50}
   m_UseHashesAsMaterialName: 1
   m_ThreadingCategory: 0
   m_SingleThreadedExecution: 0

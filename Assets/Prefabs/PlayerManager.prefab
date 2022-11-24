@@ -86,6 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
         type: 3}
+      propertyPath: shootSound
+      value: Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962071005816425533, guid: 2ec67a88dbf930c4c9781e6044e244a0,
+        type: 3}
       propertyPath: moveInput.m_Reference
       value: 
       objectReference: {fileID: -5842669356097522361, guid: c348712bda248c246b8c49b3db54643f,
