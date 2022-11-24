@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     [Header("_____Debug_____")]
     public bool isPendingKill = false;
 
+    [Header("_____SOUND____")]
+    public string deathSound = "";
+
     private void OnEnable()
     {
         isPendingKill = false;
@@ -66,7 +69,7 @@ public class Enemy : MonoBehaviour
         Sequence destroySequence = DOTween.Sequence();
         destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
         destroySequence.Play();
-
+        SoundManager.Instance.PlaySound(deathSound);
         enemyText.Play();
         while (true)
         {

@@ -388,5 +388,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  disappearTime: 1
+  disappearTime: 1.8
   disappearTimer: 0
