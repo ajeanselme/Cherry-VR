@@ -103,7 +103,7 @@ Material:
     - Brightness_Rim: 2
     - Rim_Power: 5
     - Toon_Ramp_Offset: 0.5
-    - Toon_Ramp_Smoothness: 0.374
+    - Toon_Ramp_Smoothness: 0.207
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
