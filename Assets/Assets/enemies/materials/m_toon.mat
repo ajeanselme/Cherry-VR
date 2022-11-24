@@ -13,9 +13,9 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 5000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -98,8 +98,8 @@ Material:
     - _Outline_Power: 0.56
     - _Parallax: 0.005
     - _Power: 0.0002
-    - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueControl: 1
+    - _QueueOffset: -50
     - _ReceiveShadows: 1
     - _Sharpness: 0.86
     - _Smoothness: 0.5

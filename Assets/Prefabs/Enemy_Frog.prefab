@@ -651,6 +651,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: frog
       objectReference: {fileID: 0}
+    - target: {fileID: 4583153375252583338, guid: b111e9c9f434b9f48979cfa60fb76bf4,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583153375252583338, guid: b111e9c9f434b9f48979cfa60fb76bf4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29a4f5f13a1c93d4b8d0a845a8fde837, type: 2}
+    - target: {fileID: 4583153375252583338, guid: b111e9c9f434b9f48979cfa60fb76bf4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 599faf781933db74c973e7106488289b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b111e9c9f434b9f48979cfa60fb76bf4, type: 3}
 --- !u!4 &717703977317528970 stripped
