@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17317742, g: 0.5438923, b: 0.7806774, a: 1}
+  m_IndirectSpecularColor: {r: 0.17324771, g: 0.5439229, b: 0.7806913, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -601,7 +601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532917118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 3.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1676,6 +1676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450463401742690897, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
+      propertyPath: block
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450463401742690897, guid: a47b78ada7cbfd4469a647ac25f1e51e,
+        type: 3}
       propertyPath: muzzle
       value: 
       objectReference: {fileID: 560760288}
@@ -1692,7 +1697,7 @@ PrefabInstance:
     - target: {fileID: 6125418351676826055, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
       propertyPath: nbMissiles
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6125418351676826055, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
@@ -1782,7 +1787,7 @@ PrefabInstance:
     - target: {fileID: 8078549323823232642, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8078549323823232642, guid: a47b78ada7cbfd4469a647ac25f1e51e,
         type: 3}
@@ -1866,6 +1871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435372646131500674, guid: 617f1db5db720fb49bb7055400cf9f28,
         type: 3}
+      propertyPath: nbEnemies
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435372646131500674, guid: 617f1db5db720fb49bb7055400cf9f28,
+        type: 3}
       propertyPath: startWave
       value: 0
       objectReference: {fileID: 0}
@@ -1873,6 +1883,26 @@ PrefabInstance:
         type: 3}
       propertyPath: enemiesStep
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435372646131500674, guid: 617f1db5db720fb49bb7055400cf9f28,
+        type: 3}
+      propertyPath: spacingVertical
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435372646131500674, guid: 617f1db5db720fb49bb7055400cf9f28,
+        type: 3}
+      propertyPath: spawnEnemyZero.x
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435372646131500674, guid: 617f1db5db720fb49bb7055400cf9f28,
+        type: 3}
+      propertyPath: spawnEnemyZero.y
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435372646131500674, guid: 617f1db5db720fb49bb7055400cf9f28,
+        type: 3}
+      propertyPath: spacingHorizontal
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8435372646131500675, guid: 617f1db5db720fb49bb7055400cf9f28,
         type: 3}
