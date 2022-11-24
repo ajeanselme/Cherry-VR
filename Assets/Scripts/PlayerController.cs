@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public float block = 10.0f;
 
-    public GameObject TrailLeft, TrailRight;
+    public GameObject trailLeft, trailRight, mainTrail;
     public MissilePool missilePool;
 
     [SerializeField] VisualEffect muzzle;
@@ -47,29 +47,30 @@ public class PlayerController : MonoBehaviour
     {
         if (move)
         {
+            mainTrail.SetActive(true);
             if (moveInput.action.ReadValue<Vector2>().x > 0 && transform.position.x < block)
             {
                 transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
-                TrailLeft.SetActive(true);
-                TrailRight.SetActive(false);
+                trailLeft.SetActive(true);
+                trailRight.SetActive(false);
             }
             else if (moveInput.action.ReadValue<Vector2>().x < 0 && transform.position.x > -block)
             {
                 transform.position += new Vector3(moveInput.action.ReadValue<Vector2>().x * (speed * Time.deltaTime), 0);
-                TrailRight.SetActive(true);
-                TrailLeft.SetActive(false);
+                trailRight.SetActive(true);
+                trailLeft.SetActive(false);
             }
             else
             {
-                TrailLeft.SetActive(false);
-                TrailRight.SetActive(false);
+                trailLeft.SetActive(false);
+                trailRight.SetActive(false);
             }
         }
         else
         {
-            TrailLeft.SetActive(false);
-            TrailRight.SetActive(false);
-        }
+            trailLeft.SetActive(false);
+            trailRight.SetActive(false);
+        }   
     }
 
     private void Shoot()
@@ -88,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayShootAnimation()
     {
+        mainTrail.SetActive(false);
         Sequence shootRecoil = DOTween.Sequence();
         shootRecoil.Append(transform.DOPunchPosition(-transform.up, duration, vibrato, elasticity));
         shootRecoil.Append(transform.DOMoveY(_baseY, moveBackDuration));
