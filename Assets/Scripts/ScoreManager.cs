@@ -81,8 +81,6 @@ public class ScoreManager : MonoBehaviour
     {
         score += value * _currentMultiplier;
         _multiplierProgress += value;
-        if (_multiplierProgress > _multiplierProgressTarget)
-            _multiplierProgress = _multiplierProgressTarget;
         scoreText.text = score.ToString();
         PlayScoreDetailAnimation(value);
         PunchZoomScore();
@@ -94,17 +92,20 @@ public class ScoreManager : MonoBehaviour
     {
         if (multiplierSteps.Length > _currentMultiplier + 1)
         {
-            _currentMultiplier += 1;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
+            _currentMultiplier += 1;
             UpdateMultiplierBar();
+        } else
+        {
+            _multiplierProgress = _multiplierProgressTarget;
         }
     }
     private void DecreaseMultiplier()
     {
         if (_currentMultiplier > 1)
         {
-            _currentMultiplier -= 1;
             _currentMultiplierStep = multiplierSteps[_currentMultiplier];
+            _currentMultiplier -= 1;
             UpdateMultiplierBar(false);
         }
     }
@@ -114,9 +115,13 @@ public class ScoreManager : MonoBehaviour
         _multiplierProgressTarget = _currentMultiplierStep.scoreRequired;
         _multiplierProgress = _multiplierProgressTarget / 20f;
         multiplierFiller.color = _currentMultiplierStep.barColor;
-            
-        multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
-            _currentMultiplierStep.barScaleDuration);
+        
+        if(EffectManager.Instance.IsActivated("RescaleBar"))
+        {
+            multiplierFiller.transform.parent.DOScale(_currentMultiplierStep.barScale,
+                _currentMultiplierStep.barScaleDuration);
+        }
+        
         if (_currentMultiplier > 1)
             multiplierText.text = "x" + _currentMultiplier;
         else
@@ -128,6 +133,8 @@ public class ScoreManager : MonoBehaviour
 
     private void PlayScoreDetailAnimation(int score)
     {
+        if(!EffectManager.Instance.IsActivated("ScoreDetailAnimation")) return;
+        
         GameObject scoreDetail = Instantiate(scoreDetailPrefab, scoreText.transform.parent);
         TMP_Text scoreDetailText = scoreDetail.GetComponent<TMP_Text>();
         scoreDetailText.text = "+" + score;
@@ -143,6 +150,8 @@ public class ScoreManager : MonoBehaviour
     
     private void PunchZoomScore()
     {
+        if(!EffectManager.Instance.IsActivated("PunchZoomScore")) return;
+
         Sequence sequence = DOTween.Sequence();
         sequence.Append(scoreText.transform.DOPunchScale(zoomDirection, zoomDuration, zoomVibrato, zoomElasticity));
         sequence.Append(scoreText.transform.DOScale(Vector3.one, .1f));
@@ -151,6 +160,8 @@ public class ScoreManager : MonoBehaviour
     
     private void ShakeBar()
     {
+        if(!EffectManager.Instance.IsActivated("ShakeBar")) return;
+
         Sequence sequence = DOTween.Sequence();
         sequence.Append(multiplierFiller.gameObject.transform.parent.DOShakeRotation(
             _currentMultiplierStep.barShakeDuration, 

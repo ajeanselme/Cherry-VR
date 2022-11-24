@@ -35,8 +35,6 @@ public class Enemy : MonoBehaviour
     {
         isPendingKill = true;
         StartCoroutine(OnKill());
-
-        CameraManager.Instance.ShakeCamera(shakeDuration, shakeDirection, vibrato);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,10 +64,11 @@ public class Enemy : MonoBehaviour
         {
             ScoreManager.Instance.AddEnemyDeath();
         }
-        Sequence destroySequence = DOTween.Sequence();
-        destroySequence.Append(Camera.main.DOShakePosition(shakeDuration, shakeDirection, vibrato));
-        destroySequence.Play();
-        SoundManager.Instance.PlaySound(deathSound);
+        
+        if(EffectManager.Instance.IsActivated("EnemyDeath")){
+            CameraManager.Instance.ShakeCamera(shakeDuration, shakeDirection, vibrato);
+            SoundManager.Instance.PlaySound(deathSound);
+        }
         enemyText.Play();
         while (true)
         {
