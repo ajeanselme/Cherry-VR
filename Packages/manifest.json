@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.persistant-studios.popcornfx": "file:D:/PROGRAMMES/PopcornFX/Unity_PopcornFXPlugin_v2.14.2_Win_Linux_MacOS_Android_iOS/com.persistant-studios.popcornfx",
+    "com.persistant-studios.popcornfx.urp": "file:D:/PROGRAMMES/PopcornFX/UnityURP_PopcornFXPlugin_v2.14.2/com.persistant-studios.popcornfx.urp",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.15",

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df53988962bc0d46bb2956705d97b5a, type: 3}
+  m_Name: DefaultMaterialFactory
+  m_EditorClassIdentifier: 
+  m_UseSortingLayers: 0
+  m_CustomMaterials: []
+  DistortionShader: {fileID: 4800000, guid: d148465e45222432f85a1d3e92677308, type: 3}
+  BlurShader: {fileID: 4800000, guid: 0dc1a323808c03945a1db3a1cfacef2a, type: 3}
+  m_CPUBillboardingDefault: {fileID: 11400000, guid: 42c4cd98ec9966142ba5118051d18f5e,
+    type: 2}
+  m_CPUBillboardingOpaqueDefault: {fileID: 11400000, guid: 55f3db6beebff084da8144594da18bab,
+    type: 2}
+  m_VertexBillboardingDefault: {fileID: 11400000, guid: 0b7d6fe980a45e646a51602b5365cf20,
+    type: 2}
+  m_VertexBillboardingOpaqueDefault: {fileID: 11400000, guid: d19a42aac00a18d4a8d50480e52271a7,
+    type: 2}
+  m_TransparentMeshUnlitDefault: {fileID: 11400000, guid: a392e4f345378aa4bb33f88e071ec137,
+    type: 2}
+  m_OpaqueMeshUnlitDefault: {fileID: 11400000, guid: 27274e83a9bc4a7448cf68edb7b86a09,
+    type: 2}
+  m_TransparentMeshLitDefault: {fileID: 11400000, guid: a98023d19a4a6574b8f75f9d29ab8030,
+    type: 2}
+  m_OpaqueMeshLitDefault: {fileID: 11400000, guid: 0d4953015b897e8489adc654d76a17a0,
+    type: 2}
+  m_CPUBillboardingDistortion: {fileID: 0}
+  m_VertexBillboardingDistortion: {fileID: 0}
+  m_RenderFeatureBindings:
+  - {fileID: 11400000, guid: 42c4cd98ec9966142ba5118051d18f5e, type: 2}
+  - {fileID: 11400000, guid: 55f3db6beebff084da8144594da18bab, type: 2}
+  - {fileID: 11400000, guid: 0b7d6fe980a45e646a51602b5365cf20, type: 2}
+  - {fileID: 11400000, guid: d19a42aac00a18d4a8d50480e52271a7, type: 2}
+  - {fileID: 11400000, guid: a392e4f345378aa4bb33f88e071ec137, type: 2}
+  - {fileID: 11400000, guid: 27274e83a9bc4a7448cf68edb7b86a09, type: 2}
+  - {fileID: 11400000, guid: a98023d19a4a6574b8f75f9d29ab8030, type: 2}
+  - {fileID: 11400000, guid: 0d4953015b897e8489adc654d76a17a0, type: 2}
+  m_RenderQueue: 3500
