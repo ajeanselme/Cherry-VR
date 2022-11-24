@@ -408,6 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5080813501134672944}
   - component: {fileID: 5080813501134672945}
+  - component: {fileID: 5345790337235513849}
   m_Layer: 0
   m_Name: TrailRenderer
   m_TagString: Untagged
@@ -547,6 +548,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &5345790337235513849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080813501134672950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f7d3bdfdb7ed34bb1ea8991cb0170d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5695533541913509370
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,8 +631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   block: 10
-  TrailLeft: {fileID: 601371094706496824}
-  TrailRight: {fileID: 36891233610033075}
+  trailLeft: {fileID: 601371094706496824}
+  trailRight: {fileID: 36891233610033075}
+  mainTrail: {fileID: 5080813501134672950}
   missilePool: {fileID: 4215198375168755627}
   muzzle: {fileID: 4725225921034178141}
   fireTimer: 0
@@ -762,7 +776,7 @@ VisualEffect:
   m_GameObject: {fileID: 7088336467035602171}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 97d77022bc83b284ba2f6ffbe16600dd, type: 3}
-  m_InitialEventName: OnPlay
+  m_InitialEventName: 
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
@@ -774,10 +788,10 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 0.6, y: 1, z: 1}
+      - m_Value: {x: 2.5, y: 3, z: 0.6}
         m_Name: TailleFXProjectionMin
         m_Overridden: 1
-      - m_Value: {x: 1, y: 1.8, z: 1.4}
+      - m_Value: {x: 0.6, y: 1.2, z: 1}
         m_Name: TailleFXProjectionMax
         m_Overridden: 1
       - m_Value: {x: 2, y: 2, z: 0.5}
