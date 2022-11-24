@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private bool move;
     private bool shoot;
 
+    [Header("_____SOUND_____")]
+    public string shootSound = "";
     private void Start()
     {
         _baseY = transform.position.y;
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour
                 if(muzzle != null)
                     muzzle.Play();
                 PlayShootAnimation();
+                SoundManager.Instance.PlaySound(shootSound);
             }
         }
     }
