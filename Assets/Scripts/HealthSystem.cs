@@ -76,6 +76,8 @@ public class HealthSystem : MonoBehaviour
 
     private void PlayPlayerTakeDamage()
     {
+        if(!EffectManager.Instance.IsActivated("PlayerTakeDamage")) return;
+
         CameraManager.Instance.ShakeCamera(damageScreenShakeDuration, damageScreenShakeStrength, damageScreenShakeVibrato);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(DOTween.To(() => _vignette.intensity.value, x => _vignette.intensity.value = x, fullVignetteIntensity, timeToFullRedVignette));

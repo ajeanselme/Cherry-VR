@@ -85,11 +85,12 @@ public class PlayerController : MonoBehaviour
 
     private void PlayShootAnimation()
     {
+        if (!EffectManager.Instance.IsActivated("ShootAnimation")) return;
         Sequence shootRecoil = DOTween.Sequence();
         shootRecoil.Append(transform.DOPunchPosition(-transform.up, duration, vibrato, elasticity));
         shootRecoil.Append(transform.DOMoveY(_baseY, moveBackDuration));
         shootRecoil.Play();
-    }
+        }
 
     private void HandleInput()
     {

@@ -134,6 +134,8 @@ public class MenuManager : MonoBehaviour
 
     private void PlayFinalScoreFillAnimation()
     {
+        if(!EffectManager.Instance.IsActivated("FinalScoreFillAnimation")) return;
+        
         int fillValue = 0;
         DOTween.To(() => fillValue, x =>
             {
