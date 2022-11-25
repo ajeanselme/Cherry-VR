@@ -24,6 +24,8 @@ public class HealthSystem : MonoBehaviour
     public int damageScreenShakeVibrato = 10;
     public Vector2 damageScreenShakeStrength = Vector2.one;
 
+    public HeartUI heartUI;
+
     [Header("_____DEBUG_____")]
     public int health = 10;
 
@@ -64,6 +66,7 @@ public class HealthSystem : MonoBehaviour
     private void TakeDamage()
     {
         health -= 1;
+        heartUI.DeactivateHeart();
         if (health > 0)
         {
             PlayPlayerTakeDamage();
