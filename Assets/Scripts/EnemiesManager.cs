@@ -74,12 +74,9 @@ public class EnemiesManager : MonoBehaviour
             SpawnEnemies();
         }
 
-        timer += Time.deltaTime;
-        if (timer > 0.5f)
-        {
-            timer -= 0.5f;
+       
             HandleEnemiesMove();
-        }
+        
     }
 
     void HandleEnemiesMove()
