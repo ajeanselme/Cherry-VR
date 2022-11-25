@@ -118,7 +118,7 @@ public class EnemiesManager : MonoBehaviour
             for (int i = 0; i < enemies.Count; i++)
             {
                 Vector3 pos = enemies[i].transform.position;
-                enemies[i].transform.position = new Vector3(pos.x, pos.y - enemiesStep, pos.z);
+                enemies[i].transform.position = new Vector3(pos.x, pos.y - 0.35f, pos.z);
             }
             moveRight = !moveRight;
         }
